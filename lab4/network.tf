@@ -27,9 +27,15 @@ module "subnet_addrs" {
 resource "aws_subnet" "subnet_a" {
     vpc_id             = module.first_vpc_module.vpc_id
     cidr_block         = module.subnet_addrs.networks[0].cidr_block
+    tags = {
+        Name = module.subnet_addrs.networks[0].name
+    }
 }
 
 resource "aws_subnet" "subnet_b" {
     vpc_id             = module.first_vpc_module.vpc_id
     cidr_block         = module.subnet_addrs.networks[1].cidr_block
+    tags = {
+        Name = module.subnet_addrs.networks[1].name
+    }
 }
