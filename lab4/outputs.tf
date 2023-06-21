@@ -1,6 +1,6 @@
 output "hello-world" {
     description = "Print a Hello World text output"
-    value = module.first_vpc_module.hello-world
+    value = "I really want to say - ${module.first_vpc_module.hello-world}"
 }
 
 output "VPC_ID" {
