@@ -39,10 +39,10 @@ resource "aws_instance" "ubuntu_server" {
   security_groups = [aws_security_group.vpc-ping.id,
   aws_security_group.ingress-ssh.id, aws_security_group.vpc-web.id]
   associate_public_ip_address = true
-  key_name                    = aws_key_pair.generated.key_name
+  key_name                    = aws_key_pair.myKeyPair.key_name
   connection {
     user        = "ubuntu"
-    private_key = tls_private_key.generated.private_key_pem
+    private_key = tls_private_key.tls_keyName.private_key_pem
     host        = self.public_ip
   }
   tags = {
